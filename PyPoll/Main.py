@@ -2,7 +2,7 @@
 # 1. The total number of votes cast - Done
 # 2. A complete list of candidates who received votes - Done*
 # 3. The percentage of votes each candidate won
-# 4. The total number of votes each candidate won
+# 4. The total number of votes each candidate won - Done
 # 5. The winner of the election based on popular vote
 
 ### Start Here
@@ -27,8 +27,10 @@ with open(Election_file_path) as Election_File:
             # add to list if they haven't been added.
             candidates.append(candidate) 
             Votes.append(1) # add the first vote
-        #else:
-            #Do Nothing
+        else: #assume candidate is in list
+            Candidate_ID = candidates.index(candidate)
+            Votes[Candidate_ID] += 1
+            
 
 # Add to total votes
 # Print results to screen
@@ -38,6 +40,8 @@ print('Election Results')
 print('-------------------------')
 print(f'Total Votes: {total_votes}')
 print('-------------------------')
+for candidate in candidates:
+        print(f'{candidate}: 23.049% ({Votes[candidates.index(candidate)]})')
 
 print(len(candidates), "Candidates")
 print(candidates, "Candidates")
