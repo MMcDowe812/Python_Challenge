@@ -50,20 +50,24 @@ print('-------------------------')
 print(f'Winner: {winning_Can}')
 print('-------------------------')
 
+
+# Print the results to file
+out_file_path = "PyPoll\election_results.txt"
+with open(out_file_path, 'w') as file_out:
+    file_out.write('Election Results\n')
+    file_out.write('-------------------------\n')
+    file_out.write(f'Total Votes: {total_votes}\n')
+    file_out.write('-------------------------\n')
+    for candidate in candidates:
+        votes = Votes[candidates.index(candidate)]
+        file_out.write(f'{candidate}: {round((votes/total_votes) * 100,3)}% ({Votes[candidates.index(candidate)]})\n')
+    file_out.write('-------------------------\n')
+    file_out.write(f'Winner: {winning_Can}\n')
+    file_out.write('-------------------------\n')
+
 ### End Here
 
 
 
 
 
-#Example
-# Election Results
-# -------------------------
-# Total Votes: 369711
-# -------------------------
-# Charles Casper Stockham: 23.049% (85213)
-# Diana DeGette: 73.812% (272892)
-# Raymon Anthony Doane: 3.139% (11606)
-# -------------------------
-# Winner: Diana DeGette
-# -------------------------
