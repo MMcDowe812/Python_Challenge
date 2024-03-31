@@ -1,11 +1,4 @@
-#
-# 1. The total number of votes cast - Done
-# 2. A complete list of candidates who received votes - Done*
-# 3. The percentage of votes each candidate won
-# 4. The total number of votes each candidate won - Done
-# 5. The winner of the election based on popular vote
 
-### Start Here
 # create variables
 import csv
 Election_file_path ="PyPoll\Resources\election_data.csv"
@@ -31,7 +24,16 @@ with open(Election_file_path) as Election_File:
             Candidate_ID = candidates.index(candidate)
             Votes[Candidate_ID] += 1
             
-
+# Done Reading the file
+# Find the winner 
+    winning_Can = ""
+    winning_Can_Votes = 0
+    for candidate in candidates:
+        votes = Votes[candidates.index(candidate)]
+        if votes>winning_Can_Votes:
+            winning_Can = candidate
+            winning_Can_Votes = votes
+            
 # Add to total votes
 # Print results to screen
         
@@ -41,11 +43,12 @@ print('-------------------------')
 print(f'Total Votes: {total_votes}')
 print('-------------------------')
 for candidate in candidates:
-        print(f'{candidate}: 23.049% ({Votes[candidates.index(candidate)]})')
+    votes = Votes[candidates.index(candidate)]
+    print(f'{candidate}: {round((votes/total_votes) * 100,3)}% ({Votes[candidates.index(candidate)]})')
 
-print(len(candidates), "Candidates")
-print(candidates, "Candidates")
-print(Votes, "Votes")
+print('-------------------------')
+print(f'Winner: {winning_Can}')
+print('-------------------------')
 
 ### End Here
 
