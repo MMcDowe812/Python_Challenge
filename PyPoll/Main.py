@@ -7,19 +7,27 @@
 
 ### Start Here
 # create variables
-# open the file
 import csv
-file_path ="PyPoll\Resources\election_data.csv"
+Election_file_path ="PyPoll\Resources\election_data.csv"
+total_votes = 0
 
-# with open(file_path) as text:
-#     csv_file = csv.reader(text)
-#     for row in csv_file:
+# open the file
+with open(Election_file_path) as Election_File:
+    csv_file = csv.reader(Election_File)
+    next(csv_file)  #Skips a row in the file (first row = header row)
+    # Read a row in the file
+    for row in csv_file:
+        # Add to total votes
+        total_votes += 1
         
-# Read a row in the file
 # Add to total votes
 # Print results to screen
+        
 # Print results to file
-
+print('Election Results')
+print('-------------------------')
+print(f'Total Votes: {total_votes}')
+print('-------------------------')
 
 
 
